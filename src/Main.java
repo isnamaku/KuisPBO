@@ -1,4 +1,5 @@
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -31,10 +32,10 @@ public class Main {
 
             try {
                 menu2 = input.nextInt();
-                if (menu2 < 0) {
-                    throw new IllegalArgumentException("\tFormulir tidak ada");
+                if (menu2 <= 0) {
+                    throw new InputMismatchException();
                 } else if (menu2 > 2) {
-                    throw new IllegalArgumentException("\tTidak ada formulir rekruitmen lain");
+                    throw new InputMismatchException();
                 } else if (menu2 == 1) {
                     System.out.print("Banyak data : ");
                     banyakData1 = input.nextInt();
@@ -98,8 +99,8 @@ public class Main {
                 System.out.println("\n");
                 }
 
-             catch (Exception e) {
-                System.out.println("Harus integer");
+             catch (InputMismatchException inputMismatchException) {
+                System.out.println("Pilih menu yang ada! ");
             }
 
             System.out.println("Kembali ke menu (y/n)?");
